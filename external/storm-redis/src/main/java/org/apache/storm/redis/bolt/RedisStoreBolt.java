@@ -68,6 +68,11 @@ public class RedisStoreBolt extends AbstractRedisBolt {
      */
     @Override
     public void execute(Tuple input) {
+        if (TupleUtils.isTick(input)) {
+            collector.ack(input);
+            return;
+        }
+
         String key = storeMapper.getKeyFromTuple(input);
         String value = storeMapper.getValueFromTuple(input);
 

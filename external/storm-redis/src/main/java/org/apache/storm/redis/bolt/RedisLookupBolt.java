@@ -73,6 +73,11 @@ public class RedisLookupBolt extends AbstractRedisBolt {
      */
     @Override
     public void execute(Tuple input) {
+        if (TupleUtils.isTick(input)) {
+            collector.ack(input);
+            return;
+        }
+
         String key = lookupMapper.getKeyFromTuple(input);
         Object lookupValue;
 
