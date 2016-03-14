@@ -1,5 +1,4 @@
 Master Branch: 
-
 [![][travis img]][travis]
 [![][maven img]][maven]
 [![][release img]][release]
@@ -270,3 +269,14 @@ under the License.
 YourKit is kindly supporting open source projects with its full-featured Java Profiler. YourKit, LLC is the creator of innovative and intelligent tools for profiling Java and .NET applications. Take a look at YourKit's leading software products: [YourKit Java Profiler](http://www.yourkit.com/java/profiler/index.jsp) and [YourKit .NET Profiler](http://www.yourkit.com/.net/profiler/index.jsp).
 
 
+[travis]:https://travis-ci.org/apache/storm
+[travis img]:https://travis-ci.org/apache/storm.svg?branch=master
+
+[maven]:http://search.maven.org/#search|gav|1|g:"org.apache.storm"%20AND%20a:"storm-core"
+[maven img]:https://maven-badges.herokuapp.com/maven-central/org.apache.storm/storm-core/badge.svg
+
+[release]:https://github.com/apache/storm/releases
+[release img]:https://img.shields.io/github/release/apache/storm.svg
+
+[license]:LICENSE-2.0.txt
+[license img]:https://img.shields.io/badge/License-Apache%202-blue.svg
