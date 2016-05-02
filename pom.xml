@@ -267,6 +267,9 @@
         <module>storm-buildtools/storm-maven-plugins</module>
         <module>storm-core</module>
         <module>storm-rename-hack</module>
+        <module>external/flux</module>
+        <module>external/sql</module>
+        <module>external/alarm</module>
         <module>external/storm-kafka</module>
         <module>external/storm-hdfs</module>
         <module>external/storm-hbase</module>
@@ -274,8 +277,6 @@
         <module>external/storm-jdbc</module>
         <module>external/storm-redis</module>
         <module>external/storm-eventhubs</module>
-        <module>external/flux</module>
-        <module>external/sql</module>
         <module>external/storm-elasticsearch</module>
         <module>external/storm-solr</module>
         <module>external/storm-metrics</module>
