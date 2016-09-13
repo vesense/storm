@@ -48,7 +48,7 @@ public class EvenScheduler implements IScheduler {
         //supervisor3:6702, supervisor2:6702,
         //supervisor3:6703
 
-        if (availableSlots != null && availableSlots.size() > 0) {
+//        if (availableSlots != null && availableSlots.size() > 0) {
             // group by node
             Map<String, List<WorkerSlot>> slotGroups = new TreeMap<String, List<WorkerSlot>>();
             for (WorkerSlot slot : availableSlots) {
@@ -83,9 +83,9 @@ public class EvenScheduler implements IScheduler {
             });
 
             return Utils.interleaveAll(list);
-        }
+//        }
 
-        return null;
+//        return null;
     }
 
     public static Map<WorkerSlot, List<ExecutorDetails>> getAliveAssignedWorkerSlotExecutors(Cluster cluster, String topologyId) {
@@ -111,10 +111,10 @@ public class EvenScheduler implements IScheduler {
         LOG.info("### sortedList:{}", sortedList);
         LOG.info("### aliveAssigned:{}", aliveAssigned);
         
-        if (sortedList == null) {
-            LOG.error("No available slots for topology: {}", topology.getName());
-            return new HashMap<ExecutorDetails, WorkerSlot>();
-        }
+//        if (sortedList == null) {
+//            LOG.error("No available slots for topology: {}", topology.getName());
+//            return new HashMap<ExecutorDetails, WorkerSlot>();
+//        }
 
         //allow request slots number bigger than available slots 
         int toIndex = (totalSlotsToUse - aliveAssigned.size()) > sortedList.size() ? sortedList.size() : (totalSlotsToUse - aliveAssigned.size());
