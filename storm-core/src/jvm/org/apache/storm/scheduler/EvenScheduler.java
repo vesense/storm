@@ -112,6 +112,7 @@ public class EvenScheduler implements IScheduler {
         LOG.info("### aliveAssigned:{}", aliveAssigned);
         
         if (sortedList == null) {
+            LOG.info("### sortedList is null");
             sortedList = new ArrayList<>(); 
 //            LOG.error("No available slots for topology: {}", topology.getName());
 //            return new HashMap<ExecutorDetails, WorkerSlot>();
