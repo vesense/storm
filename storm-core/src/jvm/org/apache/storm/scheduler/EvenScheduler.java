@@ -111,10 +111,11 @@ public class EvenScheduler implements IScheduler {
         LOG.info("### sortedList:{}", sortedList);
         LOG.info("### aliveAssigned:{}", aliveAssigned);
         
-//        if (sortedList == null) {
+        if (sortedList == null) {
+            sortedList = new ArrayList<>(); 
 //            LOG.error("No available slots for topology: {}", topology.getName());
 //            return new HashMap<ExecutorDetails, WorkerSlot>();
-//        }
+        }
 
         //allow request slots number bigger than available slots 
         int toIndex = (totalSlotsToUse - aliveAssigned.size()) > sortedList.size() ? sortedList.size() : (totalSlotsToUse - aliveAssigned.size());
