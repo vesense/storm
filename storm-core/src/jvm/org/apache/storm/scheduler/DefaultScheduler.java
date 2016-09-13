@@ -25,8 +25,11 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.storm.utils.Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DefaultScheduler implements IScheduler {
+    private static final Logger LOG = LoggerFactory.getLogger(DefaultScheduler.class);
 
     private static Set<WorkerSlot> badSlots(Map<WorkerSlot, List<ExecutorDetails>> existingSlots, int numExecutors, int numWorkers) {
         if (numWorkers != 0) {
@@ -70,6 +73,7 @@ public class DefaultScheduler implements IScheduler {
     }
 
     public static void defaultSchedule(Topologies topologies, Cluster cluster) {
+        LOG.info("invoke default schedule...");
         List<TopologyDetails> needsSchedulingTopologies = cluster.needsSchedulingTopologies(topologies);
         for (TopologyDetails topology : needsSchedulingTopologies) {
             List<WorkerSlot> availableSlots = cluster.getAvailableSlots();

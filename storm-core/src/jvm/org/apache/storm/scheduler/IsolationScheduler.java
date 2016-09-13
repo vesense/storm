@@ -72,6 +72,7 @@ public class IsolationScheduler implements IScheduler {
     // set blacklist to what it was initially
     @Override
     public void schedule(Topologies topologies, Cluster cluster) {
+        LOG.info("invoke iso schedule...");
         Set<String> origBlacklist = cluster.getBlacklistedHosts();
         List<TopologyDetails> isoTopologies = isolatedTopologies(topologies.getTopologies());
         Set<String> isoIds = extractTopoplogyIds(isoTopologies);
@@ -144,6 +145,7 @@ public class IsolationScheduler implements IScheduler {
                 }
             }
         } else {
+            LOG.info("run default scheduler on non-isolated topologies...");
             // run default scheduler on non-isolated topologies
             Set<String> allocatedTopologies = allocatedTopologies(topologyWorkerSpecs);
             Topologies leftOverTopologies = leftoverTopologies(topologies, allocatedTopologies);

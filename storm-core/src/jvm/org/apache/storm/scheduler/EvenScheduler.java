@@ -105,6 +105,12 @@ public class EvenScheduler implements IScheduler {
         int totalSlotsToUse = Math.min(topology.getNumWorkers(), availableSlots.size() + aliveAssigned.size());
 
         List<WorkerSlot> sortedList = sortSlots(availableSlots);
+        
+        LOG.info("### NumWorkers:{}, availableSlots:{}, aliveAssigned:{}, totalSlotsToUse:{}",
+                topology.getNumWorkers(), availableSlots.size(), aliveAssigned.size(), totalSlotsToUse);
+        LOG.info("### sortedList:{}", sortedList);
+        LOG.info("### aliveAssigned:{}", aliveAssigned);
+        
         if (sortedList == null) {
             LOG.error("No available slots for topology: {}", topology.getName());
             return new HashMap<ExecutorDetails, WorkerSlot>();
@@ -144,6 +150,7 @@ public class EvenScheduler implements IScheduler {
     }
 
     public static void scheduleTopologiesEvenly(Topologies topologies, Cluster cluster) {
+        LOG.info("invoke even schedule...");;
         List<TopologyDetails> needsSchedulingTopologies = cluster.needsSchedulingTopologies(topologies);
         for (TopologyDetails topology : needsSchedulingTopologies) {
             String topologyId = topology.getId();
